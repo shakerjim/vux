@@ -132,7 +132,11 @@ class Swiper {
     offset = offset || 0
     arrayFrom(me.$items).forEach(function ($item, key) {
       let distance = me._offset[key] + offset
-      let transform = `translate3d(${distance}px, 0, 0)`
+      let transform = `translate3d(${distance}px, 0, 0)scale(1,.9)`
+      if (me._current === Number(key)) {
+        $item.classList.add("sen_active")
+        transform = `translate3d(${distance}px, 0, 0)`
+      }
       if (me._options.direction === 'vertical') {
         transform = `translate3d(0, ${distance}px, 0)`
       }
